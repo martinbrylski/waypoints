@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Wegpunkte</string>
+    <string name="app_label">Wegpunkte</string>
+    <string name="search_hint">Suchen</string>
+</resources>
