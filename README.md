@@ -4,10 +4,10 @@ Zeigt Wegpunkte in der Sächsischen Schweiz an.
 
 ## Roadmap
 
-- [ ] Master-Detail View
+- [x] Master-Detail View
 - [ ] Offline Karten
 - [ ] Skript für weitere POI
-- [ ] OSM-Karten Integration
+- [x] OSM-Karten Integration
 
 ## Skript für POI
 
