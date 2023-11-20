@@ -3,7 +3,6 @@ package de.martinbrylski.wegpunkte.data
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
-import de.martinbrylski.wegpunkte.Waypoint
 
 @Dao
 interface WaypointDao {

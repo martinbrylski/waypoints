@@ -32,18 +32,18 @@ object FormatUtils {
     }
 
     fun getIconifiedTextForWaypointType(type: Int): String {
-        when (type) {
-            Type.WAYPOINT -> return MaterialCommunityIcons.mdi_tag_text_outline.iconify()
-            Type.ROCK -> return MaterialIcons.md_terrain.iconify()
-            Type.HOUSE -> return MaterialIcons.md_store_mall_directory.iconify()
-            Type.SHELTER -> return MaterialIcons.md_satellite.iconify()
-            Type.CAMPING -> return MaterialCommunityIcons.mdi_tent.iconify()
-            Type.CAVE_ENTRANCE -> return MaterialIcons.md_vignette.iconify()
-            Type.MEMORIAL -> return MaterialIcons.md_local_activity.iconify()
-            Type.GUEST_HOUSE -> return MaterialIcons.md_hotel.iconify()
-            Type.RESTAURANT -> return MaterialIcons.md_local_dining.iconify()
-            Type.HOSTEL -> return MaterialIcons.md_hotel.iconify()
-            else -> return MaterialIcons.md_place.iconify()
+        return when (type) {
+            Type.WAYPOINT -> MaterialCommunityIcons.mdi_tag_text_outline.iconify()
+            Type.ROCK -> MaterialIcons.md_terrain.iconify()
+            Type.HOUSE -> MaterialIcons.md_store_mall_directory.iconify()
+            Type.SHELTER -> MaterialIcons.md_satellite.iconify()
+            Type.CAMPING -> MaterialCommunityIcons.mdi_tent.iconify()
+            Type.CAVE_ENTRANCE -> MaterialIcons.md_vignette.iconify()
+            Type.MEMORIAL -> MaterialIcons.md_local_activity.iconify()
+            Type.GUEST_HOUSE -> MaterialIcons.md_hotel.iconify()
+            Type.RESTAURANT -> MaterialIcons.md_local_dining.iconify()
+            Type.HOSTEL -> MaterialIcons.md_hotel.iconify()
+            else -> MaterialIcons.md_place.iconify()
         }
     }
 }

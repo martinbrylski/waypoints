@@ -1,4 +1,4 @@
-package de.martinbrylski.wegpunkte
+package de.martinbrylski.wegpunkte.data
 
 import androidx.annotation.NonNull
 import androidx.room.Entity

@@ -7,12 +7,11 @@ import android.location.Location
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
+import de.martinbrylski.wegpunkte.data.Waypoint
 import de.martinbrylski.wegpunkte.databinding.ItemWaypointBinding
 import de.martinbrylski.wegpunkte.util.FormatUtils
 import de.martinbrylski.wegpunkte.util.NavigationUtils
-import timber.log.Timber
 
 class WaypointAdapter(private var waypoints: List<Waypoint>, private val context: Context) :
     RecyclerView.Adapter<WaypointAdapter.WaypointViewHolder>(), LocationObserver {
