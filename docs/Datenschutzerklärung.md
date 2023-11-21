@@ -1,6 +1,12 @@
 Datenschutzerklärung
 ====================
 
+TLDR;
+-----
+
+Die App speichert keine personenbezogenen Daten. Es werden lediglich OpenStreetMap-Karten heruntergeladen. Der (optionale) Zugriff auf GPS-Daten erfolgt, um die Entfernung zu den Wegpunkten zu berechnen, sowie um einen Marker auf der Karte, mit der aktuellen Position, ańzuzeigen.
+
+
 Präambel
 --------
 

@@ -31,7 +31,7 @@ import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay
 class MapsFragment : Fragment() {
     private var waypoint: Waypoint? = null
     private var _binding: FragmentMapsBinding? = null
-    private lateinit var gpsOverlay: MyLocationNewOverlay
+    private var gpsOverlay: MyLocationNewOverlay? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -80,8 +80,8 @@ class MapsFragment : Fragment() {
                 R.drawable.ic_map_direction, null
             )
 
-            gpsOverlay.setPersonIcon(FormatUtils.drawableToBitmap(bitmapNotMoving!!))
-            gpsOverlay.setDirectionIcon(FormatUtils.drawableToBitmap(bitmapMoving!!))
+            gpsOverlay?.setPersonIcon(FormatUtils.drawableToBitmap(bitmapNotMoving!!))
+            gpsOverlay?.setDirectionIcon(FormatUtils.drawableToBitmap(bitmapMoving!!))
         }
 
         return rootView
@@ -91,8 +91,8 @@ class MapsFragment : Fragment() {
         super.onResume()
 
         if (PermissionHelper.hasLocationPermission)
-            gpsOverlay.enableMyLocation()
-        gpsOverlay.isDrawAccuracyEnabled = true
+            gpsOverlay?.enableMyLocation()
+        gpsOverlay?.isDrawAccuracyEnabled = true
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -172,7 +172,7 @@ class MapsFragment : Fragment() {
         super.onPause()
         binding.mapview.onResume()
         if (PermissionHelper.hasLocationPermission)
-            gpsOverlay.disableMyLocation()
+            gpsOverlay?.disableMyLocation()
     }
 
     override fun onDestroyView() {
