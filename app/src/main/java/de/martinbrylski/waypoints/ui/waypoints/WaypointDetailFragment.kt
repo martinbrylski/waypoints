@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.appbar.CollapsingToolbarLayout
 import de.martinbrylski.waypoints.R
 import de.martinbrylski.waypoints.data.AppDatabase
@@ -26,6 +27,7 @@ import org.osmdroid.util.GeoPoint
 import org.osmdroid.views.MapView
 import org.osmdroid.views.overlay.ItemizedIconOverlay
 import org.osmdroid.views.overlay.OverlayItem
+import timber.log.Timber
 
 /**
  * A fragment representing a single Waypoint detail screen.
@@ -35,9 +37,6 @@ import org.osmdroid.views.overlay.OverlayItem
  */
 class WaypointDetailFragment : Fragment(), LocationObserver {
 
-    /**
-     * The placeholder content this fragment is presenting.
-     */
     private var item: Waypoint? = null
     private var toolbarLayout: CollapsingToolbarLayout? = null
     private var _binding: FragmentWaypointDetailBinding? = null
@@ -122,7 +121,16 @@ class WaypointDetailFragment : Fragment(), LocationObserver {
 
                     startActivity(intent)
                 }
-
+                binding.btShowLocalMap.setOnClickListener({
+                    val bundle = Bundle()
+                    bundle.putLong(
+                        MapsFragment.ARG_ITEM_ID,
+                        waypoint.id
+                    )
+                    Timber.d("hoho")
+                    this.findNavController()
+                        .navigate(R.id.nav_mapview, bundle)
+                })
                 initMap(binding.activityMap, waypoint)
             }
         }
@@ -139,12 +147,13 @@ class WaypointDetailFragment : Fragment(), LocationObserver {
         val startPoint = GeoPoint(waypoint.latitude.toDouble(), waypoint.longitude.toDouble())
         mapController.setCenter(startPoint)
 
+        // create overlays
+        val items = ArrayList<OverlayItem>()
+
         val myLocationOverlayItem = OverlayItem(waypoint.name, waypoint.description, startPoint)
         val myCurrentLocationMarker =
             ContextCompat.getDrawable(requireActivity(), R.drawable.ic_location_pointer)
         myLocationOverlayItem.setMarker(myCurrentLocationMarker)
-
-        val items = ArrayList<OverlayItem>()
         items.add(myLocationOverlayItem)
 
         val currentLocationOverlay = ItemizedIconOverlay<OverlayItem>(
@@ -169,6 +178,10 @@ class WaypointDetailFragment : Fragment(), LocationObserver {
     override fun onPause() {
         super.onPause()
         binding.activityMap.onResume()
+        gpsLocationManager?.setLocationObserver(this)
+        if (PermissionHelper.hasLocationPermission) {
+            gpsLocationManager?.stopLocationUpdates()
+        }
     }
 
     companion object {

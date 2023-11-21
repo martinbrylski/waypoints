@@ -19,16 +19,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:contentScrim="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+            app:layout_scrollFlags="noScroll"
             app:toolbarId="@+id/toolbar">
 
             <org.osmdroid.views.MapView
                 android:id="@+id/activityMap"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:enabled="false"
-                app:layout_collapseMode="parallax"
-                app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed" />
+                android:enabled="false" />
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/detail_toolbar"

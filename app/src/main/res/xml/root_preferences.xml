@@ -1,6 +1,9 @@
 <PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <PreferenceCategory app:title="@string/settings_maps">
+    <PreferenceCategory
+        app:title="@string/settings_maps"
+        app:disableDependentsState="true"
+        app:enabled="false">
 
         <CheckBoxPreference
             app:key="offline_maps"

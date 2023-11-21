@@ -1,5 +1,9 @@
 package de.martinbrylski.waypoints.util
 
+import android.graphics.Bitmap
+import android.graphics.Canvas
+import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.Drawable
 import com.joanzapata.iconify.fonts.MaterialCommunityIcons
 import com.joanzapata.iconify.fonts.MaterialIcons
 
@@ -45,5 +49,35 @@ object FormatUtils {
             Type.HOSTEL -> MaterialIcons.md_hotel.iconify()
             else -> MaterialIcons.md_place.iconify()
         }
+    }
+
+    fun drawableToBitmap(drawable: Drawable): Bitmap {
+        var bitmap: Bitmap? = null
+
+        if (drawable is BitmapDrawable) {
+            val bitmapDrawable = drawable as BitmapDrawable
+            if (bitmapDrawable.getBitmap() != null) {
+                return bitmapDrawable.getBitmap()
+            }
+        }
+
+        if (drawable.intrinsicWidth <= 0 || drawable.intrinsicHeight <= 0) {
+            bitmap = Bitmap.createBitmap(
+                1,
+                1,
+                Bitmap.Config.ARGB_8888
+            ) // Single color bitmap will be created of 1x1 pixel
+        } else {
+            bitmap = Bitmap.createBitmap(
+                drawable.intrinsicWidth,
+                drawable.intrinsicHeight,
+                Bitmap.Config.ARGB_8888
+            )
+        }
+
+        val canvas = Canvas(bitmap)
+        drawable.setBounds(0, 0, canvas.width, canvas.height)
+        drawable.draw(canvas)
+        return bitmap
     }
 }

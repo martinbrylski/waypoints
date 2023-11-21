@@ -24,11 +24,23 @@
             android:name="item_id"
             android:defaultValue="0L"
             app:argType="long" />
+        <action
+            android:id="@+id/action_show_mapview"
+            app:destination="@id/nav_mapview" />
     </fragment>
     <fragment
         android:id="@+id/nav_settings"
         android:name="de.martinbrylski.waypoints.ui.settings.SettingsFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_settings" />
-
+    <fragment
+        android:id="@+id/nav_mapview"
+        android:name="de.martinbrylski.waypoints.ui.waypoints.MapsFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_maps">
+        <argument
+            android:name="item_id"
+            android:defaultValue="0L"
+            app:argType="long" />
+    </fragment>
 </navigation>
