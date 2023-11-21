@@ -25,10 +25,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@eb238b55efaa70779f274895e782ed17c84f2895 # v2.6.1
+        with:
+          egress-policy: audit
+
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
 
       - name: Setup python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@65d7f2d534ac1bc67fcd62888c5f4f3d2cb2b236 # v4.7.1
         with:
           python-version: 3.8
 
@@ -38,6 +43,6 @@ jobs:
           args: . --sarif --output results.sarif || true
 
       - name: Upload mobsfscan report
-        uses: github/codeql-action/upload-sarif@v2
+        uses: github/codeql-action/upload-sarif@66b90a5db151a8042fa97405c6cf843bbe433f7b # v2.22.7
         with:
           sarif_file: results.sarif
