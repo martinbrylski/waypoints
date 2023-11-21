@@ -58,7 +58,7 @@ class WaypointListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.searchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return true
             }
@@ -101,7 +101,7 @@ class WaypointListFragment : Fragment() {
 
     private fun performSearch(query: String?) {
         GlobalScope.launch(Dispatchers.IO) {
-            var waypoints: List<Waypoint> = listOf()
+            var waypoints: List<Waypoint>
             if (!query.isNullOrBlank()) {
                 waypoints = waypointDao.searchWaypoints("%$query%")
             } else

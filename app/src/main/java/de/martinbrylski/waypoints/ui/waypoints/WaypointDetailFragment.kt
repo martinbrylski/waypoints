@@ -101,12 +101,12 @@ class WaypointDetailFragment : Fragment(), LocationObserver {
                 //toolbarLayout?.title = item?.name
                 (requireActivity() as AppCompatActivity).supportActionBar?.title = item?.name
 
-                binding.txtDetailArea?.text =
+                binding.txtDetailArea.text =
                     String.format("%s (%s)", waypoint.description, waypoint.area)
-                binding.txtDetailCoordinates?.text =
+                binding.txtDetailCoordinates.text =
                     String.format("%s, %s°", waypoint.latitude, waypoint.longitude)
 
-                binding.btShowAndroidMap?.setOnClickListener {
+                binding.btShowAndroidMap.setOnClickListener {
                     val intent = Intent(
                         Intent.ACTION_VIEW, Uri.parse(
                             String.format(
@@ -120,21 +120,10 @@ class WaypointDetailFragment : Fragment(), LocationObserver {
                         )
                     )
 
-                    if (intent.resolveActivity(requireActivity().packageManager) != null) {
-                        startActivity(intent)
-                    } else {
-                        var urlAddress = String.format(
-                            "http://maps.google.com/maps?q=%s,%s(%s)&iwloc=A&hl=es",
-                            waypoint.latitude,
-                            waypoint.longitude,
-                            waypoint.name
-                        )
-                        var intent = Intent(Intent.ACTION_VIEW, Uri.parse(urlAddress))
-                        startActivity(intent)
-                    }
+                    startActivity(intent)
                 }
 
-                initMap(binding.activityMap!!, waypoint)
+                initMap(binding.activityMap, waypoint)
             }
         }
     }
@@ -179,7 +168,7 @@ class WaypointDetailFragment : Fragment(), LocationObserver {
 
     override fun onPause() {
         super.onPause()
-        binding.activityMap?.onResume()
+        binding.activityMap.onResume()
     }
 
     companion object {
@@ -198,21 +187,21 @@ class WaypointDetailFragment : Fragment(), LocationObserver {
     override fun onLocationChanged(location: Location) {
         if (location.latitude != 0.0 && location.longitude != 0.0) {
             requireActivity().runOnUiThread {
-                binding.txtDetailDistance?.visibility = View.VISIBLE
-                binding.txtDetailDistanceHelp?.visibility = View.VISIBLE
-                binding.txtDetailDistance?.text = NavigationUtils.formatDistance(
+                binding.txtDetailDistance.visibility = View.VISIBLE
+                binding.txtDetailDistanceHelp.visibility = View.VISIBLE
+                binding.txtDetailDistance.text = NavigationUtils.formatDistance(
                     NavigationUtils.distanceInMeter(
                         location.latitude,
                         location.longitude,
-                        java.lang.Double.parseDouble(item?.latitude),
-                        java.lang.Double.parseDouble(item?.longitude)
+                        java.lang.Double.parseDouble(item?.latitude ?: "0"),
+                        java.lang.Double.parseDouble(item?.longitude ?: "0")
                     )
                 )
             }
         } else {
             requireActivity().runOnUiThread {
-                binding.txtDetailDistance?.visibility = View.GONE
-                binding.txtDetailDistanceHelp?.visibility = View.GONE
+                binding.txtDetailDistance.visibility = View.GONE
+                binding.txtDetailDistanceHelp.visibility = View.GONE
             }
         }
     }

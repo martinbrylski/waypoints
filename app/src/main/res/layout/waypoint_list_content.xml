@@ -16,14 +16,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:paddingRight="@dimen/text_margin"
+            android:paddingEnd="@dimen/text_margin"
             android:text="{md-terrain}"
             android:textSize="36sp" />
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginRight="8dp"
+            android:layout_marginEnd="8dp"
             android:layout_weight="1"
             android:orientation="vertical">
 
@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:text="Name"
+                android:text="@string/name"
                 android:textColor="@android:color/black"
                 android:textSize="@dimen/text_larger" />
 
@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:singleLine="true"
-                android:text="Description"
+                android:text="@string/description"
                 android:textColor="@color/colorDarkGray"
                 android:textSize="@dimen/text_large" />
 
