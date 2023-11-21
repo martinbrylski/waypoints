@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.plugin.mpp.pm20.util.archivesName
-
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -7,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "de.martinbrylski.wegpunkte"
+    namespace = "de.martinbrylski.waypoints"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "de.martinbrylski.wegpunkte"
+        applicationId = "de.martinbrylski.waypoints"
         minSdk = 24
         targetSdk = 34
         versionCode = 20
@@ -61,9 +59,9 @@ android {
 }
 
 val room_version = "2.6.0"
+val preference_version = "1.2.1"
 
 dependencies {
-
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.10.0")
@@ -79,6 +77,8 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:2.7.5")
     implementation("org.osmdroid:osmdroid-android:6.1.17")
     implementation("com.guolindev.permissionx:permissionx:1.7.1")
+    implementation("androidx.preference:preference-ktx:$preference_version")
+    implementation("androidx.preference:preference:1.2.1")
     annotationProcessor("androidx.room:room-compiler:$room_version")
     ksp("androidx.room:room-compiler:$room_version")
     implementation("androidx.room:room-ktx:$room_version")

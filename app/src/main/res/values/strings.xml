@@ -39,4 +39,35 @@
     <string name="legal"><b>Martin Brylski</b>\nHolbeinstraße 96\n01309 Dresden</string>
     <string name="legalIntro">Diese App wird bereit gestellt von</string>
     <string name="email">info@martinbrylski.de</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="nav_header_title">Wegpunkte</string>
+    <string name="nav_header_subtitle"></string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Einstellungen</string>
+
+    <string name="menu_home">Wegpunkte</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Abbrechen</string>
+    <string name="permission_explanation_1">Um die Entfernung und die Karte der Wegpunkte anzuzeigen sind bestimmte Berechtigungen notwendig.</string>
+    <string name="permission_explanation_2">Du musst alle Berechtigungen in den Einstellungen manuell freigeben.</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="settings_maps">OSMDroid Karten</string>
+    <string name="menu_settings">Einstellungen</string>
 </resources>

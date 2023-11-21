@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/nav_waypoints_list">
+
+    <fragment
+        android:id="@+id/nav_waypoints_list"
+        android:name="de.martinbrylski.waypoints.ui.waypoints.WaypointListFragment"
+        android:label="@string/title_waypoint_list">
+        <action
+            android:id="@+id/show_waypoint_detail"
+            app:destination="@id/nav_waypoints_detail" />
+        <action
+            android:id="@+id/action_waypoint_list_fragment_to_nav_settings"
+            app:destination="@id/nav_settings" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_waypoints_detail"
+        android:name="de.martinbrylski.waypoints.ui.waypoints.WaypointDetailFragment"
+        tools:layout="@layout/fragment_waypoint_detail">
+        <argument
+            android:name="item_id"
+            android:defaultValue="0L"
+            app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_settings"
+        android:name="de.martinbrylski.waypoints.ui.settings.SettingsFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_settings" />
+
+</navigation>

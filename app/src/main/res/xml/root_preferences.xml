@@ -1,0 +1,19 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="@string/settings_maps">
+
+        <CheckBoxPreference
+            app:key="offline_maps"
+            app:title="Offline Maps"
+            app:summary="Enable offline maps"
+            app:defaultValue="false" />
+
+        <CheckBoxPreference
+            app:key="show_maps"
+            app:title="Show Maps"
+            app:summary="Display maps in the app"
+            app:defaultValue="true" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
