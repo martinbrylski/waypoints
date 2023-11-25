@@ -10,12 +10,14 @@ android {
 
     defaultConfig {
         applicationId = "de.martinbrylski.waypoints"
-        minSdk = 24
+        minSdk = 30
         targetSdk = 34
-        versionCode = 20
-        versionName = "2.0"
+        versionCode = 22
+        versionName = "2.2"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        setProperty("archivesBaseName", "waypoints-" + versionCode)
     }
 
     signingConfigs {
@@ -55,6 +57,17 @@ android {
         includeInApk = false
         // Disables dependency metadata when building Android App Bundles.
         includeInBundle = false
+    }
+
+    applicationVariants.all {
+        val variant = this
+        variant.outputs
+            .map { it as com.android.build.gradle.internal.api.BaseVariantOutputImpl }
+            .forEach { output ->
+                val outputFileName =
+                    "waypoints-${variant.versionName}-${variant.baseName}.apk"
+                output.outputFileName = outputFileName
+            }
     }
 }
 
