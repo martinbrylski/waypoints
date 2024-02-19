@@ -71,7 +71,7 @@ android {
     }
 }
 
-val room_version = "2.6.0"
+val room_version = "2.6.1"
 val preference_version = "1.2.1"
 
 dependencies {
