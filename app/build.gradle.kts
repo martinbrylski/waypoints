@@ -89,7 +89,7 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.5")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.5")
     implementation("org.osmdroid:osmdroid-android:6.1.17")
-    implementation("com.guolindev.permissionx:permissionx:1.7.1")
+    implementation("com.guolindev.permissionx:permissionx:1.8.0")
     implementation("androidx.preference:preference-ktx:$preference_version")
     annotationProcessor("androidx.room:room-compiler:$room_version")
     ksp("androidx.room:room-compiler:$room_version")
