@@ -75,7 +75,7 @@ val room_version = "2.6.1"
 val preference_version = "1.2.1"
 
 dependencies {
-    implementation("androidx.core:core-ktx:1.12.0")
+    implementation("androidx.core:core-ktx:1.13.1")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.10.0")
     implementation("com.joanzapata.iconify:android-iconify-material:2.2.2")
