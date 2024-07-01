@@ -43,6 +43,6 @@ jobs:
           args: . --sarif --output results.sarif || true
 
       - name: Upload mobsfscan report
-        uses: github/codeql-action/upload-sarif@379614612a29c9e28f31f39a59013eb8012a51f0 # v3.24.3
+        uses: github/codeql-action/upload-sarif@b611370bb5703a7efb587f9d136a52ea24c5c38c # v3.25.11
         with:
           sarif_file: results.sarif
